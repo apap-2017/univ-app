@@ -27,7 +27,7 @@ Mengembalikan daftar semua Universitas
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "univList":[
@@ -52,7 +52,7 @@ Mengembalikan object sebuah Universitas diberikan id_univ
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "universitas":{
@@ -87,7 +87,7 @@ Mengembalikan daftar semua Fakultas diberikan id_univ dari sebuah Universitas
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "idUniv":"1",
@@ -122,7 +122,7 @@ Mengembalikan object sebuah Fakultas diberikan id_univ dan id_fakultas
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "fakultas":{
@@ -167,7 +167,7 @@ Mengembalikan daftar semua prodi pada Universitas dan Fakultas tertentu
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "idUniv":"1",
@@ -212,7 +212,7 @@ Mengembalikan object sebuah Prodi diberikan id_univ, id_fakultas, dan id_prodi
 
 ```json
 {
-	"status":200,
+  "status":200,
   "msg":"success",
   "result":{
     "prodi":{
