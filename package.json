@@ -7,7 +7,7 @@
     "start": "nodemon index.js --exec babel-node",
     "build": "rm -rf dist && babel index.js --out-dir dist && mv dist/index.js dist/server.js && babel database --out-dir dist/database --copy-files && cp config/package.json dist/package.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy-heroku": "git subtree push --prefix dist heroku master"
+    "deploy-heroku": "git push heroku master"
   },
   "repository": {
     "type": "git",
