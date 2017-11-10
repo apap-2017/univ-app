@@ -1,29 +1,89 @@
 import express from 'express'
+import univList from './database/univ_list.json'
+import fakultasList from './database/fakultas_list.json'
+import prodiList from './database/prodi_list.json'
 
 const app = express()
 
 app.get('/getUniversitasList', (req, res, next) => {
-
+  res.status(200).json({
+    status: 200,
+    msg: 'success',
+    result: univList
+  })
 })
 
-app.get('/getUniversitas', (req, res, next) => {
+app.get('/getUniversitas/:idUniv', (req, res, next) => {
+  const idUniv = req.params.idUniv
+  
+  univList.forEach((e) => {
+    if (e.id_univ == idUniv) {
+      return res.status(200).json({
+        status: 200,
+        msg: 'success',
+        result: {
+          universitas: e
+        }
+      })
+    }    
+  })
 
+  return next()
 })
 
 app.get('/getFakultasList', (req, res, next) => {
-
+  res.status(200).json({
+    status: 200,
+    msg: 'success',
+    result: {
+      fakultasList
+    }
+  })
 })
 
-app.get('/getFakultas', (req, res, next) => {
-  
+app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
+  const idUniv = req.params.idUniv
+  const idFakultas = req.params.idFakultas
+
+  fakultasList.forEach((e) => {
+    if (e.id_univ == idUniv && e.id_fakultas == idFakultas) {
+      return res.status(200).json({
+        status: 200,
+        msg: 'success',
+        result: {
+          fakultas: e
+        }
+      })
+    }    
+  })
+
+  return next()
 })
 
 app.get('/getProdiList', (req, res, next) => {
-
+  res.status(200).json({
+    status: 200,
+    msg: 'success',
+    result: prodiList
+  })
 })
 
-app.get('/getProdi', (req, res, next) => {
-  
+app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
+  const idUniv = req.params.idUniv
+  const idFakultas = req.params.idFakultas
+  const idProdi = req.params.idProdi
+
+  prodiList.forEach((e) => {
+    if (e.id_univ == idUniv && e.id_fakultas == idFakultas && e.id_prodi == idProdi) {
+      return res.status(200).json({
+        status: 200,
+        msg: 'success',
+        result: {
+          prodi: e
+        }
+      })
+    }    
+  })
 })
 
 app.use((req, res, next) => {
