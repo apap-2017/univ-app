@@ -1,0 +1,10 @@
+{
+  "name": "apap2017_univ_apps",
+  "version": "1.0.0",
+  "description": "APAP 2017 Fasilkom UI Aplikasi Universitas",
+  "author": "Jundi Alwan",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+ }
