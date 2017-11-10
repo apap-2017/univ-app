@@ -104,9 +104,7 @@ app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
         }
       })
     }    
-  }
-
-  return next()
+  }  
 })
 
 /* ------- */
@@ -152,6 +150,27 @@ app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
   const idFakultas = req.params.idFakultas
   const idProdi = req.params.idProdi
 
+  if (!isExist(idUniv, univList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Universitas tidak ditemukan',
+    })
+  }
+
+  if (!isExist(idFakultas, fakultasList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Fakultas tidak ditemukan',
+    })
+  }
+
+  if (!isExist(idProdi, prodiList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Prodi tidak ditemukan',
+    })
+  }
+
   for (let e of prodiList) {
     if (e.id_univ == idUniv && e.id_fakultas == idFakultas && e.id_prodi == idProdi) {
       return res.status(200).json({
@@ -162,9 +181,7 @@ app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
         }
       })
     }    
-  }
-
-  return next()
+  }  
 })
 
 /* ------- */
