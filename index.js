@@ -5,6 +5,15 @@ import prodiList from './database/prodi_list.json'
 
 const app = express()
 
+const isExist = (id, list) => {
+  for (let e of list) {    
+    if (e[Object.keys(e)[0]] == id) 
+      return e
+  }
+
+  return false
+}
+
 app.get('/getUniversitasList', (req, res, next) => {
   res.status(200).json({
     status: 200,
@@ -39,6 +48,33 @@ app.get('/getFakultasList', (req, res, next) => {
     msg: 'success',
     result: {
       fakultasList
+    }
+  })
+})
+
+app.get('/getFakultasList/:idUniv', (req, res, next) => {
+  const idUniv = req.params.idUniv
+  const fakultasInUnivList = []
+
+  if (!isExist(idUniv, univList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Universitas tidak ditemukan',
+    })
+  }
+
+  for(let e of fakultasList) {
+    if (e.id_univ == idUniv) {
+      fakultasInUnivList.push(e)
+    }
+  }
+
+  res.status(200).json({
+    status: 200,
+    msg: 'success',
+    result: {
+      idUniv,
+      fakultasInUnivList
     }
   })
 })
@@ -100,5 +136,5 @@ app.use((req, res, next) => {
 })
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log('server started on port 3000')
+  console.log('server started')
 })
