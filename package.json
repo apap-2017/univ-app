@@ -1,0 +1,19 @@
+{
+  "name": "univ-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apap-2017/univ-app.git"
+  },
+  "author": "Jundi Alwan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apap-2017/univ-app/issues"
+  },
+  "homepage": "https://github.com/apap-2017/univ-app#readme"
+}
