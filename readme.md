@@ -28,14 +28,14 @@ Mengembalikan daftar semua Universitas
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-    	"univList":[
-        	{"id_univ":"1","nama_univ":"Universitas A"},
-            {"id_univ":"2","nama_univ":"Universitas B"},
-            {"id_univ":"3","nama_univ":"Universitas C"}
-        ]
-    }
+  "msg":"success",
+  "result":{
+    "univList":[
+      {"id_univ":"1","nama_univ":"Universitas A"},
+      {"id_univ":"2","nama_univ":"Universitas B"},
+      {"id_univ":"3","nama_univ":"Universitas C"}
+    ]
+  }
 }
 ```
 
@@ -53,13 +53,13 @@ Mengembalikan object sebuah Universitas diberikan id_univ
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-    	"universitas":{
-        	"id_univ":"1",
-            "nama_univ":"Universitas A"
-        }
+  "msg":"success",
+  "result":{
+    "universitas":{
+      "id_univ":"1",
+      "nama_univ":"Universitas A"
     }
+  }
 }
 ```
 
@@ -88,15 +88,15 @@ Mengembalikan daftar semua Fakultas diberikan id_univ dari sebuah Universitas
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-      "idUniv":"1",
-      "fakultasList":[
-        {"id_univ":"1","id_fakultas":"1","nama_fakultas":"Fakultas A1"},
-        {"id_univ":"1","id_fakultas":"2","nama_fakultas":"Fakultas A2"},
-        {"id_univ":"1","id_fakultas":"3","nama_fakultas":"Fakultas A3"}
-      ]
-    }
+  "msg":"success",
+  "result":{
+    "idUniv":"1",
+    "fakultasList":[
+      {"id_univ":"1","id_fakultas":"1","nama_fakultas":"Fakultas A1"},
+      {"id_univ":"1","id_fakultas":"2","nama_fakultas":"Fakultas A2"},
+      {"id_univ":"1","id_fakultas":"3","nama_fakultas":"Fakultas A3"}
+    ]
+  }
 }
 ```
 ### Error Response
@@ -123,14 +123,14 @@ Mengembalikan object sebuah Fakultas diberikan id_univ dan id_fakultas
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-    	"fakultas":{
-        	"id_univ":"1",
-            "id_fakultas":"1",
-            "nama_fakultas":"Fakultas A1"
-        }
+  "msg":"success",
+  "result":{
+    "fakultas":{
+      "id_univ":"1",
+      "id_fakultas":"1",
+      "nama_fakultas":"Fakultas A1"
     }
+  }
 }
 ```
 
@@ -168,16 +168,16 @@ Mengembalikan daftar semua prodi pada Universitas dan Fakultas tertentu
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-      "idUniv":"1",
-      "idFakultas":"1",
-      "prodiList":[
-        {"id_univ":"1","id_fakultas":"1","id_prodi":"1","nama_prodi":"Program Studi A1X"},
-        {"id_univ":"1","id_fakultas":"1","id_prodi":"2","nama_prodi":"Program Studi A1Y"},
-        {"id_univ":"1","id_fakultas":"1","id_prodi":"3","nama_prodi":"Program Studi A1Z"}
-      ]
-    }
+  "msg":"success",
+  "result":{
+    "idUniv":"1",
+    "idFakultas":"1",
+    "prodiList":[
+      {"id_univ":"1","id_fakultas":"1","id_prodi":"1","nama_prodi":"Program Studi A1X"},
+      {"id_univ":"1","id_fakultas":"1","id_prodi":"2","nama_prodi":"Program Studi A1Y"},
+      {"id_univ":"1","id_fakultas":"1","id_prodi":"3","nama_prodi":"Program Studi A1Z"}
+    ]
+  }
 }
 ```
 ### Error Response
@@ -213,15 +213,15 @@ Mengembalikan object sebuah Prodi diberikan id_univ, id_fakultas, dan id_prodi
 ```json
 {
 	"status":200,
-    "msg":"success",
-    "result":{
-    	"prodi":{
-        	"id_univ":"1",
-            "id_fakultas":"1",
-            "id_prodi":"1",
-            "nama_prodi":"Program Studi A1X"
-        }
+  "msg":"success",
+  "result":{
+    "prodi":{
+      "id_univ":"1",
+      "id_fakultas":"1",
+      "id_prodi":"1",
+      "nama_prodi":"Program Studi A1X"
     }
+  }
 }
 ```
 
@@ -266,4 +266,3 @@ Mengembalikan object sebuah Prodi diberikan id_univ, id_fakultas, dan id_prodi
 ```json
 {"status":404,"msg":"404 URL tidak ditemukan"}
 ```
-
