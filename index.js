@@ -14,6 +14,8 @@ const isExist = (id, list) => {
   return false
 }
 
+/* ------- */
+
 app.get('/getUniversitasList', (req, res, next) => {
   res.status(200).json({
     status: 200,
@@ -39,22 +41,17 @@ app.get('/getUniversitas/:idUniv', (req, res, next) => {
     }    
   }
 
-  return next()
-})
-
-app.get('/getFakultasList', (req, res, next) => {
-  res.status(200).json({
-    status: 200,
-    msg: 'success',
-    result: {
-      fakultasList
-    }
+  return res.status(200).json({
+    status: 404,
+    msg: 'Universitas tidak ditemukan',
   })
 })
 
+/* ------- */
+
 app.get('/getFakultasList/:idUniv', (req, res, next) => {
   const idUniv = req.params.idUniv
-  const fakultasInUnivList = []
+  let fakultasInUnivList = []
 
   if (!isExist(idUniv, univList)) {
     return res.status(200).json({
@@ -74,7 +71,7 @@ app.get('/getFakultasList/:idUniv', (req, res, next) => {
     msg: 'success',
     result: {
       idUniv,
-      fakultasInUnivList
+      fakultasList: fakultasInUnivList
     }
   })
 })
@@ -82,6 +79,20 @@ app.get('/getFakultasList/:idUniv', (req, res, next) => {
 app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
   const idUniv = req.params.idUniv
   const idFakultas = req.params.idFakultas
+
+  if (!isExist(idUniv, univList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Universitas tidak ditemukan',
+    })
+  }
+
+  if (!isExist(idFakultas, fakultasList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Fakultas tidak ditemukan',
+    })
+  }
 
   for (let e of fakultasList) {
     if (e.id_univ == idUniv && e.id_fakultas == idFakultas) {
@@ -98,12 +109,40 @@ app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
   return next()
 })
 
-app.get('/getProdiList', (req, res, next) => {
-  res.status(200).json({
+/* ------- */
+
+app.get('/getProdiList/:idUniv/:idFakultas', (req, res, next) => {
+  const idUniv = req.params.idUniv
+  const idFakultas = req.params.idFakultas
+  let prodiInUnivFakultasList = []
+  
+  if (!isExist(idUniv, univList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Universitas tidak ditemukan',
+    })
+  }
+
+  if (!isExist(idFakultas, fakultasList)) {
+    return res.status(200).json({
+      status: 404,
+      msg: 'Fakultas tidak ditemukan',
+    })
+  }
+
+  for (let e of prodiList) {
+    if (e.id_univ == idUniv && e.id_fakultas == idFakultas) {
+      prodiInUnivFakultasList.push(e)
+    }    
+  }
+
+  return res.status(200).json({
     status: 200,
     msg: 'success',
     result: {
-      prodiList
+      idUniv,
+      idFakultas,
+      prodiList: prodiInUnivFakultasList
     }
   })
 })
@@ -127,6 +166,8 @@ app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
 
   return next()
 })
+
+/* ------- */
 
 app.use((req, res, next) => {
   res.status(404).json({
