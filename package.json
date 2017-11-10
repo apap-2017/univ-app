@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/apap-2017/univ-app/issues"
   },
-  "homepage": "https://github.com/apap-2017/univ-app#readme"
+  "homepage": "https://github.com/apap-2017/univ-app#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
