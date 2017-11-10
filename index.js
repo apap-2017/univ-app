@@ -9,14 +9,16 @@ app.get('/getUniversitasList', (req, res, next) => {
   res.status(200).json({
     status: 200,
     msg: 'success',
-    result: univList
+    result: {
+      univList
+    }
   })
 })
 
 app.get('/getUniversitas/:idUniv', (req, res, next) => {
   const idUniv = req.params.idUniv
   
-  univList.forEach((e) => {
+  for (let e of univList) {
     if (e.id_univ == idUniv) {
       return res.status(200).json({
         status: 200,
@@ -26,7 +28,7 @@ app.get('/getUniversitas/:idUniv', (req, res, next) => {
         }
       })
     }    
-  })
+  }
 
   return next()
 })
@@ -45,7 +47,7 @@ app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
   const idUniv = req.params.idUniv
   const idFakultas = req.params.idFakultas
 
-  fakultasList.forEach((e) => {
+  for (let e of fakultasList) {
     if (e.id_univ == idUniv && e.id_fakultas == idFakultas) {
       return res.status(200).json({
         status: 200,
@@ -55,7 +57,7 @@ app.get('/getFakultas/:idUniv/:idFakultas', (req, res, next) => {
         }
       })
     }    
-  })
+  }
 
   return next()
 })
@@ -64,7 +66,9 @@ app.get('/getProdiList', (req, res, next) => {
   res.status(200).json({
     status: 200,
     msg: 'success',
-    result: prodiList
+    result: {
+      prodiList
+    }
   })
 })
 
@@ -73,7 +77,7 @@ app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
   const idFakultas = req.params.idFakultas
   const idProdi = req.params.idProdi
 
-  prodiList.forEach((e) => {
+  for (let e of prodiList) {
     if (e.id_univ == idUniv && e.id_fakultas == idFakultas && e.id_prodi == idProdi) {
       return res.status(200).json({
         status: 200,
@@ -83,7 +87,9 @@ app.get('/getProdi/:idUniv/:idFakultas/:idProdi', (req, res, next) => {
         }
       })
     }    
-  })
+  }
+
+  return next()
 })
 
 app.use((req, res, next) => {
