@@ -6,12 +6,12 @@ Base url: `https://apap2017-univ-apps.herokuapp.com`
 API List:
 * [getUniversitasList](#getuniversitaslist)
 * [getUniversitas/[id_univ]](#getuniversitasid_univ)
-* [getFakultasList/[id_univ]](#getfakultasListid_univ)
+* [getFakultasList/[id_univ]](#getfakultaslistid_univ)
 * [getFakultas/[id_univ]/[id_fakultas]](#getfakultasid_univid_fakultas)
-* [getProdiList/[id_univ]/[id_fakultas]](#getprodiListid_univid_fakultas)
+* [getProdiList/[id_univ]/[id_fakultas]](#getprodilistid_univid_fakultas)
 * [getProdi/[id_univ]/[id_fakultas]/[id_prodi]](#getprodiid_univid_fakultasid_prodi)
 
-[404 Error](#404-Error)
+[404 Error](#404-error)
 
 ## getUniversitasList
 
